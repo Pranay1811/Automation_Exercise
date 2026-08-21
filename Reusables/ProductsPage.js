@@ -5,7 +5,8 @@ exports.ProductsPage = class ProductsPage{
     constructor(page){
         this.page = page;
         this.viewProduct1btn = "a[href='/product_details/1']";
-
+        this.searchInput = "input#search_product";
+        this.searchbtn = "button#submit_search";
 
     }
 //End of Locators
@@ -28,6 +29,19 @@ get productDetails()
     return this.page.locator("//div[@class='product-details']//p[2]");
     return this.page.locator("//b[normalize-space()='Condition:']");
     return this.page.locator("//b[normalize-space()='Brand:']");
+}
+async searchProduct(productname)
+{
+    await this.page.locator(this.searchInput).fill(productname);
+}
+async searchButton()
+{
+    await this.page.locator(this.searchbtn).click();
+}
+
+get searchedProduct()
+{
+    return this.page.locator("div.productinfo");
 }
 
 

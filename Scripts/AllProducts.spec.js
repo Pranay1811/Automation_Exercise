@@ -21,7 +21,4 @@ test('test',async({page})=>{
     await expect(productpage.productDetails).toBeVisible();
     await page.waitForTimeout(3000);
 
-    
-
-
 })
