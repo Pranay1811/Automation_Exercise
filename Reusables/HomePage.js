@@ -15,6 +15,9 @@ exports.HomePage = class HomePage{
         this.testcasebtn = "//li//a[normalize-space()='Test Cases']";
         this.testcase = "#form .container";
         this.productsbtn = "a[href='/products']";
+        this.subscription = ".single-widget";
+        this.subscriptionEmailid = "#susbscribe_email";
+        this.subscribebtn = "#subscribe";
     }
 
     //End of Locators
@@ -62,6 +65,26 @@ get testCaseContainer() {
 async productsButton()
 {
     await this.page.locator(this.productsbtn).click();
+}
+async subscriptionSection()
+{
+    await this.page.locator(this.subscription).scrollIntoViewIfNeeded();
+}
+get subscriptionText()
+{
+    return this.page.locator("//h2[normalize-space()='Subscription']");
+}
+async subscriptionEmail(emailid)
+{
+    await this.page.locator(this.subscriptionEmailid).fill(emailid);
+}
+async subscribeButton()
+{
+    await this.page.locator(this.subscribebtn).click();
+}
+get subscriptionAlertMsg()
+{
+    return this.page.locator(".alert-success.alert")
 }
 
 
