@@ -36,7 +36,14 @@ exports.ContactUsPage = class ContactUsPage{
   }
   async submitButton()
   {
+    let dialog;
+    this.page.once('dialog', async (d) => {
+        dialog = d;
+        await d.accept();
+    });
+
     await this.page.locator(this.submitbtn).click();
+    return dialog;
   }
 
   get getSuccessMessage()
