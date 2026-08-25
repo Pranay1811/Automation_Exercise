@@ -20,7 +20,7 @@ test('test',async({page})=>{
     await contactus.uploadFile(filePath);
     //await page.waitForTimeout(3000);
     await contactus.submitButton();
-    page.on('dialog',async dialog=>{
+    page.once('dialog',async dialog=>{
 
         expect(dialog.type()).toContain('confirm');
         expect(dialog.message()).toContain('Press OK to proceed!');
