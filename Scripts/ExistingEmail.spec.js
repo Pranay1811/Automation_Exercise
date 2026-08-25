@@ -4,6 +4,7 @@ import { LoginPage } from '../Reusables/LoginPage'
 import { AccountInformationPage } from '../Reusables/AccountInformationPage';
 import {Signin}from '../Reusables/Signin';
 import { DeleteUser } from '../Reusables/DeleteUser';
+import { test, expect } from '../Reusables/Fixtures';
 
 test.beforeEach(async ({ page }) => {
     await Signin(page);

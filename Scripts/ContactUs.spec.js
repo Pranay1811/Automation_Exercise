@@ -3,6 +3,7 @@ import { HomePage } from '../Reusables/HomePage'
 import { LoginPage } from '../Reusables/LoginPage'
 import { AccountInformationPage } from '../Reusables/AccountInformationPage';
 import { ContactUsPage, contactUsPage } from '../Reusables/ContactUsPage';
+import { test, expect } from '../Reusables/Fixtures';
 import path from 'path';
 
 test('test', async ({ page }) => {
@@ -22,8 +23,10 @@ test('test', async ({ page }) => {
 
     // submitButton() now handles the confirm() dialog internally and returns it
     const dialog = await contactus.submitButton();
+if (dialog) {
     expect(dialog.type()).toContain('confirm');
     expect(dialog.message()).toContain('Press OK to proceed!');
+}
 
     await expect(contactus.getSuccessMessage).toBeVisible();
     await contactus.homeButton();

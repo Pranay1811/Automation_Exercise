@@ -2,6 +2,7 @@ import{test,expect} from '@playwright/test'
 import { HomePage } from '../Reusables/HomePage'
 import { LoginPage } from '../Reusables/LoginPage'
 import { AccountInformationPage } from '../Reusables/AccountInformationPage';
+import { test, expect } from '../Reusables/Fixtures';
 test('test',async({page})=>{
 
     const login =  new LoginPage(page);

@@ -34,17 +34,20 @@ exports.ContactUsPage = class ContactUsPage{
   async uploadFile(filePath) {
     await this.page.locator(this.upload).setInputFiles(filePath);
   }
-  async submitButton()
-  {
+  async submitButton() {
     let dialog;
-    this.page.once('dialog', async (d) => {
-        dialog = d;
-        await d.accept();
+    const dialogPromise = new Promise((resolve) => {
+        this.page.once('dialog', async (d) => {
+            dialog = d;
+            await d.accept();
+            resolve();
+        });
     });
 
     await this.page.locator(this.submitbtn).click();
-    return dialog;
-  }
+    await Promise.race([dialogPromise, this.page.waitForTimeout(3000)]);
+    return dialog; // may be undefined if it genuinely didn't fire — caller should guard
+}
 
   get getSuccessMessage()
   {

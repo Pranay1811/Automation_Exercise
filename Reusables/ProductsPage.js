@@ -52,7 +52,7 @@ get searchedProduct()
 async addToCartButton1()
 {
     
-    await this.page.locator(this.product1Hover).hover();
+    await this.page.locator(this.product1Hover).first().hover();
     await this.page.locator(this.product1).click();
 }
 async continueButton()

@@ -34,9 +34,11 @@ exports.AccountInformationPage = class AccountInformationPage {
         return this.page.locator('//div[@class="login-form"]');
     }
     async title()
-    {
-        await this.page.locator(this.male).click();
-    }
+{
+    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.locator(this.male).waitFor({ state: 'visible', timeout: 10000 });
+    await this.page.locator(this.male).click();
+}
     async passwordfield(password)
     {
         await this.page.locator(this.password).fill(password);

@@ -6,6 +6,7 @@ import {Signin}from '../Reusables/Signin';
 import { DeleteUser } from '../Reusables/DeleteUser';
 import { ProductsPage } from '../Reusables/ProductsPage';
 import {CartPage} from '../Reusables/CartPage';
+import { test, expect } from '../Reusables/Fixtures';
 
 test('test',async({page})=>{
 
