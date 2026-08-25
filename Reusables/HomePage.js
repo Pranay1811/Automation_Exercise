@@ -19,6 +19,7 @@ exports.HomePage = class HomePage{
         this.subscriptionEmailid = "#susbscribe_email";
         this.subscribebtn = "#subscribe";
         this.cart = "//a[normalize-space()='Cart']";
+       
     }
 
     //End of Locators
@@ -91,6 +92,8 @@ async cartButton()
 {
     await this.page.locator(this.cart).click();
 }
+
+
 
 
 }
