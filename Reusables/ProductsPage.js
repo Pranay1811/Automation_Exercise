@@ -1,4 +1,6 @@
+const { expect } = require('@playwright/test');
 exports.ProductsPage = class ProductsPage{
+    
     
 
     //Locators
@@ -13,6 +15,9 @@ exports.ProductsPage = class ProductsPage{
         this.product2Hover = "//div[3]//div[1]//div[1]//div[1]//img[1]";
         this.product2 = "//div[3]//div[1]//div[1]//div[2]//div[1]//a[1]";
         this.viewCart = "//a[normalize-space()='View Cart']";
+        this.quantity = "#quantity"
+        this.cartButton = "//button[normalize-space()='Add to cart']";
+        this.cartQuantity = "td.cart_quantity button";
     }
 //End of Locators
 
@@ -69,7 +74,22 @@ async viewCartButton()
 {
     await this.page.locator(this.viewCart).click();
 }
+async productQuantity(count)
+{
+    await this.page.locator(this.quantity).fill(count);
+}
+async addCartButton()
+{
+    await this.page.locator(this.cartButton).click();
+}
 
+async checkCartQuantity(expectedQuantity)
+{
+    const actualQuantity = await this.page.locator(this.cartQuantity).innerText();
+    
+    expect(actualQuantity).toBe(expectedQuantity);
+
+}
 
 
 
