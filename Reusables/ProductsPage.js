@@ -10,7 +10,7 @@ exports.ProductsPage = class ProductsPage{
         this.searchInput = "input#search_product";
         this.searchbtn = "button#submit_search";
         this.product1Hover = "//div[@class='col-sm-9 padding-right']//div[2]//div[1]//div[1]//div[1]//img[1]";
-        this.product1 = "//div[@class='col-sm-9 padding-right']//div[2]//div[1]//div[1]//div[2]//div[1]//a[1]";
+        this.product1 = "//div[@class='features_items']//div[2]//div[1]//div[1]//div[2]//div[1]//a[1]";
         this.continuebtn = ".btn.btn-success.close-modal.btn-block";
         this.product2Hover = "//div[3]//div[1]//div[1]//div[1]//img[1]";
         this.product2 = "//div[3]//div[1]//div[1]//div[2]//div[1]//a[1]";
